@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    min-height: 50px;
+    background: linear-gradient(rgb(255, 178, 44), rgb(255, 145, 0));
+    text-align: center;
+    line-height: 50px;
+}

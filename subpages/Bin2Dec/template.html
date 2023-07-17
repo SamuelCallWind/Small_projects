@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Binary to Decimal App</h1>
+        <a href="../../index.html">Return to the home page</a>
+    </header>
+    <section class="BinToDec">
+        <h2>Change a binary number to a decimal number</h2>
+        <p>Please enter a binary number to convert into a decimal</p>
+        <input type="text" class="numberGiven" oninput="this.value = this.value.replace(/[^01]/g, '')" title="Input must be binary, either 0's or 1's">
+        <input type="submit" class="submit">
+        <div class="answerBox"></div>
+    </section>
+
+    <section class="DecToBin">
+        <h2>Change a decimal number to a binary number</h2>
+        <p>Please enter a decimal number to convert into a binary</p>
+        <input type="text" class="numberGivenTwo" oninput="this.value = this.value.replace(/[^0-9]/g, '')" title="Input must be binary, either 0's or 1's">
+        <input type="submit" class="submitTwo">
+        <div class="answerBoxTwo"></div>
+    </section>
+
+    <script>
+        //First part to change the binary into decimal
+        let submitButton = document.querySelector('.submit');
+        submitButton.addEventListener('click', () => {
+            let binaryNum = document.querySelector('.numberGiven').value;
+            let answerBlock = document.querySelector('.answerBox');
+            if (binaryNum != '') {
+                answerBlock.innerHTML = `the Decimal number of ${binaryNum} is ${BinaryToDecimal(binaryNum)}` ;
+                answerBlock.style.opacity = '1';
+            }
+            setTimeout(function() {answerBlock.style.opacity = '0'}, 10000)
+        });
+        function BinaryToDecimal(inputBinary) {
+            return parseInt(inputBinary, 2)
+        }
+
+        //second part for Decimal to binary
+        let submitButtonTwo = document.querySelector('.submitTwo');
+        submitButtonTwo.addEventListener('click', () => {
+            let decimalNum = document.querySelector('.numberGivenTwo').value;
+            let answerBlockTwo = document.querySelector('.answerBoxTwo');
+            if (decimalNum != '') {
+                answerBlockTwo.innerHTML = `the binary number of ${decimalNum} is ${DecimalToBinary(decimalNum)}` ;
+                answerBlockTwo.style.opacity = '1';
+            }
+            
+            setTimeout(function() {answerBlockTwo.style.opacity = '0'}, 10000)
+        });
+
+        function DecimalToBinary(inputDecimal) {
+            return Number(inputDecimal).toString(2)
+        }
+    </script>
+</body>
+
+
+</html>

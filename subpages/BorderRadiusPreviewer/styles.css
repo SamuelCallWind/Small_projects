@@ -59,7 +59,15 @@ input {
     align-items: center;
 }
 .submitButton {
-    height: 100px;
+    height: 50px;
     width: 100px;
-    background-color: blue;
+    background: ;
+    border: solid brown 3px;
+    text-align: center;
+    line-height: 50px;
+    transition: background ease-in-out .3s;
+    cursor: pointer;
+}
+.submitButton:hover {
+    background: linear-gradient(rgba(114, 28, 28, 0.637), rgba(255, 166, 0, 0.549));
 }

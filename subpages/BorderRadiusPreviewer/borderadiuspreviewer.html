@@ -52,11 +52,12 @@
             </select>
         </div>
     </section>
-    <div class="center"><div type="submit" class="submitButton"></div></div>
+    <div class="center"><div type="submit" class="submitButton">Submit</div></div>
 
     <script>
         let submit = document.querySelector('.submitButton');
         submit.addEventListener('click', function() {
+            let infoBox = document.querySelector('.infoBox');
             let boxRadius = document.querySelector('.boxRadius');
             let option1 = document.querySelector('.option1').value;
             let option2 = document.querySelector('.option2').value;
@@ -67,22 +68,27 @@
             let option7 = document.querySelector('.option7').value;
             let option8 = document.querySelector('.option8').value;
             let topLeft, topRight, bottomRight, bottomLeft;
+            
+            topLeft = `${option1}` + `${option2}`;
+            topRight = `${option3}` + `${option4}`;
+            bottomRight = `${option5}` + `${option6}`;
+            bottomLeft = `${option7}` + `${option8}`;
+            boxRadius.style.borderRadius = `${topLeft} ${topRight} ${bottomRight} ${bottomLeft}`;
+            infoBox.textContent = '';
+            infoBox.textContent = `border-radius: ${topLeft} ${topRight} ${bottomRight} ${bottomLeft};`;
             if (option1 === '') {
                 topLeft = '0';
-            } else if (option3 === '') {
-                topRight = '0';
-            } else if (option5 === '') {
-                bottomRight = '0';
-            } else if (option7 === '') {
-                bottomLeft = '0';
-            } else {
-                topLeft = `${option1}` + `${option2}`;
-                topRight = `${option3}` + `${option4}`;
-                bottomRight = `${option5}` + `${option6}`;
-                bottomLeft = `${option7}` + `${option8}`;
-                boxRadius.style.borderRadius = `${topLeft} ${topRight} ${bottomRight} ${bottomLeft}`;
             }
-        });
-    </script>
+            if (option3 === '') {
+                topRight = '0';
+            }
+            if (option5 === '') {
+                bottomRight = '0';
+            }
+            if (option7 === '') {
+                bottomLeft = '0';
+            }
+            });
+        </script>
 </body>
 </html>

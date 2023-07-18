@@ -21,38 +21,68 @@
     <section class="choices">
         <div class="pairOptions">
             <p>Top-left</p>
-            <input placeholder="value" type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-            <select>
-                <option value="option1">px</option>
-                <option value="option2">vw</option>
-              </select>
+            <input class="option1" placeholder="value" type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+            <select class="option2">
+                <option value="px">px</option>
+                <option value="vw">vw</option>
+            </select>
         </div>
         <div class="pairOptionsTwo">
             <p>Top-right</p>
-            <input placeholder="value" type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-            <select>
-                <option value="option1">px</option>
-                <option value="option2">vw</option>
-              </select>
+            <input class="option3" placeholder="value" type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+            <select class="option4">
+                <option value="px">px</option>
+                <option value="vw">vw</option>
+            </select>
         </div>
         <div class="pairOptionsThree">
             <p>Bottom-right</p>
-            <input placeholder="value" type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-            <select>
-                <option value="option1">px</option>
-                <option value="option2">vw</option>
-              </select>
+            <input class="option5" placeholder="value" type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+            <select class="option6">
+                <option value="px">px</option>
+                <option value="vw">vw</option>
+            </select>
         </div>
         <div class="pairOptionsFour">
             <p>Bottom-left</p>
-            <input placeholder="value" type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-            <select>
-                <option value="option1">px</option>
-                <option value="option2">vw</option>
-              </select>
+            <input class="option7" placeholder="value" type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+            <select class="option8">
+                <option value="px">px</option>
+                <option value="vw">vw</option>
+            </select>
         </div>
     </section>
+    <div class="center"><div type="submit" class="submitButton"></div></div>
 
-    <script></script>
+    <script>
+        let submit = document.querySelector('.submitButton');
+        submit.addEventListener('click', function() {
+            let boxRadius = document.querySelector('.boxRadius');
+            let option1 = document.querySelector('.option1').value;
+            let option2 = document.querySelector('.option2').value;
+            let option3 = document.querySelector('.option3').value;
+            let option4 = document.querySelector('.option4').value;
+            let option5 = document.querySelector('.option5').value;
+            let option6 = document.querySelector('.option6').value;
+            let option7 = document.querySelector('.option7').value;
+            let option8 = document.querySelector('.option8').value;
+            let topLeft, topRight, bottomRight, bottomLeft;
+            if (option1 === '') {
+                topLeft = '0';
+            } else if (option3 === '') {
+                topRight = '0';
+            } else if (option5 === '') {
+                bottomRight = '0';
+            } else if (option7 === '') {
+                bottomLeft = '0';
+            } else {
+                topLeft = `${option1}` + `${option2}`;
+                topRight = `${option3}` + `${option4}`;
+                bottomRight = `${option5}` + `${option6}`;
+                bottomLeft = `${option7}` + `${option8}`;
+                boxRadius.style.borderRadius = `${topLeft} ${topRight} ${bottomRight} ${bottomLeft}`;
+            }
+        });
+    </script>
 </body>
 </html>

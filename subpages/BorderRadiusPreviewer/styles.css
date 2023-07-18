@@ -40,3 +40,14 @@ header {
     font-size: 0.8em;
     text-align: center;
 }
+.choices {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.pairOptions, .pairOptionsTwo, .pairOptionsThree, .pairOptionsFour {
+    margin: 2em;
+}
+input {
+    width: 9vw;
+}

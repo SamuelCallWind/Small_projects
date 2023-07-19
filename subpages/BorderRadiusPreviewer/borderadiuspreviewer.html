@@ -73,9 +73,7 @@
             topRight = `${option3}` + `${option4}`;
             bottomRight = `${option5}` + `${option6}`;
             bottomLeft = `${option7}` + `${option8}`;
-            boxRadius.style.borderRadius = `${topLeft} ${topRight} ${bottomRight} ${bottomLeft}`;
             infoBox.textContent = '';
-            infoBox.textContent = `border-radius: ${topLeft} ${topRight} ${bottomRight} ${bottomLeft};`;
             if (option1 === '') {
                 topLeft = '0';
             }
@@ -88,7 +86,10 @@
             if (option7 === '') {
                 bottomLeft = '0';
             }
-            });
+            infoBox.textContent = `border-radius: ${topLeft} ${topRight} ${bottomRight} ${bottomLeft};`;
+            boxRadius.style.borderRadius = `${topLeft} ${topRight} ${bottomRight} ${bottomLeft}`;    
+        });
+            
         </script>
 </body>
 </html>

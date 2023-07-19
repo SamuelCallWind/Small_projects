@@ -15,6 +15,7 @@ header {
     width: auto;
 }
 .calculator {
+    border-radius: 5px;
     position: relative;
     height: 300px;
     width: 200px;
@@ -43,8 +44,8 @@ header {
 
 .gridButtons {
     display: grid;
-    grid-template-columns: 40px 40px 40px 50px;
-    grid-template-rows: 40px 40px 40px 40px;
+    grid-template-columns: 30px 30px 30px 30px 30px;
+    grid-template-rows: 40px 40px 40px 40px 40px;
     gap: 5px;
     justify-content: center;
     margin-top: 1vh;
@@ -57,10 +58,44 @@ header {
     border: solid black 2px;
     border-radius: 5px;
     background: linear-gradient(135deg, #d08532, #bb691f);
+    box-shadow: 1px 1px 3px 1px;
+    transition: opacity 0.2s ease-in-out;
+    cursor: pointer;
+}
+.button:hover {
+    opacity: 0.5;
 }
 
 .result {
     margin: 5%;
     height: 10vh;
     border-radius: 10px;
+    box-shadow: 1px 1px 3px 1px;
 }
+.reset {
+    font-size: 0.5em;
+    grid-row: 4;
+    grid-column: 4;
+}
+.divide {
+    grid-column: 4;
+}
+.plus {
+    grid-column: 3;
+    grid-row: 4;
+}
+.multiply {
+    grid-column: 4;
+}
+.equal {
+    grid-column: 5;
+    grid-row: 4;
+}
+.minus {
+    grid-column: 4;
+}
+.multiply, .minus, .divide {
+    grid-column: span 2;
+}
+
+

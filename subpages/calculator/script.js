@@ -18,15 +18,20 @@ for (let i = 0; i < allButtons.length; i++) {
                 result.value += numContent;
                 operator = numContent;
             } else if (operator) {
-                // if the number 1 is not empty, add the two results because it would mean
-                // that the user has a second addition (e.g 55 + 55 + .....) so we calculate the two first
-                num2 = result.value.slice(num1.length + 1);
-                result.value = calculateTwoNumbers(num1, num2, operator);
-                num2 = '';
-                operator = numContent;
-                num1 = result.value;
-                // add the next operator at the end to not add it in a number variable
-                result.value += numContent;
+                if (result.value.split(operator)[1]) {
+                    // if the number 1 is not empty, add the two results because it would mean
+                    // that the user has a second addition (e.g 55 + 55 + .....) so we calculate the two first
+                    num2 = result.value.slice(num1.length + 1);
+                    result.value = calculateTwoNumbers(num1, num2, operator);
+                    num2 = '';
+                    operator = numContent;
+                    num1 = result.value;
+                    // add the next operator at the end to not add it in a number variable
+                    result.value += numContent;
+                } else {
+                    return;
+                }
+                
             } else if (result.value.length > 0){
                 result.value += numContent;
                 operator = numContent;
@@ -38,11 +43,16 @@ for (let i = 0; i < allButtons.length; i++) {
 
             } 
 
-            // In case user click on equal before giving inputs
-        } else if (numContent === '=' && !result.value){
             
-        } else if (numContent === '=') {
-            num2 = result.value.slice(num1.length + 1);
+        } else if (numContent === '=' && !result.value || numContent === '=' && !operator){
+            // In case user click on equal before giving inputs or giving an operator
+        } else if (numContent === '=' && operator) {
+            // split the result to check if there is a number after the operator
+            if (result.value.split(operator)[1]) {
+                num2 = result.value.slice(num1.length + 1);
+            } else {
+                return;
+            }
             if (calculateTwoNumbers(num1, num2, operator) === 'Error') {
                 num1 = '';
                 num2 = '';
@@ -62,6 +72,7 @@ for (let i = 0; i < allButtons.length; i++) {
             operator = '';
         } else {
             result.value += numContent;
+            // This add any other number to the screen
         } 
     });
 }

@@ -63,14 +63,14 @@ for (let i = 0; i < allButtons.length; i++) {
 function calculateTwoNumbers(num1, num2, operator) {
     switch (operator) {
         case '+':
-            return parseInt(num1) + parseInt(num2);
+            return parseFloat(num1) + parseFloat(num2);
         case '-':
-            return parseInt(num1) - parseInt(num2);
+            return parseFloat(num1) - parseFloat(num2);
         case '×':
-            return parseInt(num1) * parseInt(num2);
+            return parseFloat(num1) * parseFloat(num2);
         case '÷':
             if (num2 !== 0) {
-                return parseInt(num1) / parseInt(num2);
+                return parseFloat(num1) / parseFloat(num2);
             } else {
                 return 'Error'; 
             }

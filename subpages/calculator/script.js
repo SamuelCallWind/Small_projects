@@ -10,7 +10,10 @@ for (let i = 0; i < allButtons.length; i++) {
 
     currentNumber.addEventListener('click', function () {
         if (numContent === '+' || numContent === '-' || numContent === '×' || numContent === '÷') {
-            if (!num1) {
+            if (result.value === '') {
+                //do nothing
+            }
+            if (!num1 && result.value) {
                 num1 = result.value;
                 result.value += numContent;
                 operator = numContent;
@@ -19,12 +22,12 @@ for (let i = 0; i < allButtons.length; i++) {
                 // that the user has a second addition (e.g 55 + 55 + .....) so we calculate the two first
                 num2 = result.value.slice(num1.length + 1);
                 result.value = calculateTwoNumbers(num1, num2, operator);
-                num1 = '';
                 num2 = '';
-                result.value = '';
-                operator = '';
+                operator = numContent;
                 num1 = result.value;
-            } else {
+                // add the next operator at the end to not add it in a number variable
+                result.value += numContent;
+            } else if (result.value.length > 0){
                 result.value += numContent;
                 operator = numContent;
             }
@@ -35,6 +38,9 @@ for (let i = 0; i < allButtons.length; i++) {
 
             } 
 
+            // In case user click on equal before giving inputs
+        } else if (numContent === '=' && !result.value){
+            
         } else if (numContent === '=') {
             num2 = result.value.slice(num1.length + 1);
             if (calculateTwoNumbers(num1, num2, operator) === 'Error') {

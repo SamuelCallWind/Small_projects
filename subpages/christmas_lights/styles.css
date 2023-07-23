@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    min-height: 50px;
+    background: linear-gradient(rgb(255, 178, 44), rgb(255, 145, 0));
+    text-align: center;
+    line-height: 50px;
+}
+
+.lightbulb {
+    width: 3vw;
+    height: 3vw;
+    border-radius: 5000px 500px 5000px 0;
+    transform: rotate(-42deg);
+}
+.blue {
+    background: linear-gradient(rgb(0, 76, 143), rgb(88, 123, 184))
+}
+.red {
+    background: linear-gradient(rgb(184, 23, 23), rgb(158, 80, 80))
+}
+.green {
+    background: linear-gradient(rgb(55, 143, 0), rgb(96, 184, 88))
+}
+.containerLines {
+    display: flex;  
+}
+.bow {
+    width: 15vw;
+    height: 20px;
+    border: none;
+    border-bottom: 3px solid black;
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
+.stopLight, .startLight {
+    width: 10vw;
+    height: 5vh;
+    margin: 2vw;
+}
+
+.allBulbs, .threePackBulb {
+    display: flex;
+}
+.threePackBulb {
+    margin-right: 0.5vw;
+}
+.lightbulb {
+    margin: 0.8vw;
+}
+.green {
+    margin-top: -0.2vw;
+    animation: glowGreen 1s infinite alternate;
+}
+.blue {
+    margin-top: -0.4vw;
+    animation: glowBlue 1s infinite alternate;
+}
+.red {
+    margin-top: 0.3vw;
+    animation: glowRed 1s infinite alternate;
+}
+.red, .green, .blue {
+    transition: margin-top 0.3s ease;
+}
+
+.threePackBulb:nth-child(even) .red{
+    animation-delay: 1s;
+}
+.threePackBulb:nth-child(even) .blue {
+    animation-delay: 0.7s;
+}
+.threePackBulb:nth-child(even) .green {
+    animation-delay: 1.5s;
+}
+.threePackBulb:nth-child(odd) .red{
+    animation-delay: 0.5s;
+}
+.threePackBulb:nth-child(odd) .blue {
+    animation-delay: 0.3s;
+}
+.threePackBulb:nth-child(odd) .green {
+    animation-delay: 0.2s;
+}
+
+
+@media (min-width: 905px) {
+    .green {
+        margin-top: 0;
+    }
+    .blue {
+        margin-top: 0;
+    }
+    .red {
+        margin-top: 0.5vw;
+    }
+}
+@media (max-width: 600px) {
+    .green {
+        margin-top: -1.5vw;
+    }
+    .blue {
+        margin-top: -1.5vw;
+    }
+    .red {
+        margin-top: -0.7vw;
+    }
+}
+
+@keyframes glowRed {
+    from {
+        box-shadow: 0 0 0 rgb(184, 23, 23), 0 0 5px rgb(184, 23, 23);
+    } to {
+        box-shadow: 0 0 10px rgb(184, 23, 23), 0 0 20px rgb(184, 23, 23);
+    }
+}
+@keyframes glowBlue {
+    from {
+        box-shadow: 0 0 0 rgb(0, 76, 143), 0 0 5px rgb(0, 76, 143);
+    } to {
+        box-shadow: 0 0 10px rgb(0, 76, 143), 0 0 20px rgb(0, 76, 143);
+    }
+}
+@keyframes glowGreen {
+    from {
+        box-shadow: 0 0 0 rgb(55, 143, 0), 0 0 5px rgb(55, 143, 0);
+    } to {
+        box-shadow: 0 0 10px rgb(55, 143, 0), 0 0 20px rgb(55, 143, 0);
+    }
+}
